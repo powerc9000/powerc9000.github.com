@@ -1,0 +1,52 @@
+.score-contain{
+	padding:20px;
+}
+.name-area h1{
+	margin-top:75px;
+	font-size:12em;
+	color:white;
+	text-shadow:2px 2px 10px #404040;
+	margin-bottom:15%;
+}
+.peter-score-side , .clay-score-side{
+	
+	position:absolute;
+	top:0;
+	bottom:0;
+}
+.clay-score-side{
+	right:0;
+	background:#6312B0;
+}
+.peter-score-side{
+	background:#B06312;
+	left:0;
+}
+.image-contain{
+	width:200px;
+	height:200px;
+	overflow:hidden;
+	
+	border:10px white solid;
+	box-shadow:1px 1px 10px black;
+}
+.clay-score-side .image-contain{
+	margin-right:100px;
+}
+.peter-score-side .image-contain{
+	margin-left:100px;
+}
+.clay-score-side .image-contain img{
+	width:200px;
+}
+.peter-score-side .image-contain img{
+	height:200px;
+}
+
+.points-contain p{
+	line-height:500px;
+	text-align:center;
+	font-size:45em;
+	color:white;
+	text-shadow:5px 5px 10px #404040;
+}
