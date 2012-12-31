@@ -5,12 +5,10 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
-				var rand1 = Math.round(Math.random() * 50);
-				var rand2 = Math.round(Math.random() * 50);
 				var scores = $(".score");
-				console.log(scores[0]);
-				$(scores[0]).text(rand1);
-				$(scores[1]).text(rand2);
+				$.each(scores, function(i, s){
+					$(s).text(Math.round(Math.random() * 50))
+				})
 			})
 		</script>
 		<title>
