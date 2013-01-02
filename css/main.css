@@ -1,0 +1,41 @@
+body{
+	background:url("../img/ub.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.main{
+	background:rgba(255,255,255,.9);
+	padding:20px;
+	border-radius:0 0 10px 10px;
+}
+.smile{
+	overflow:hidden;
+	padding-right:50px;
+}
+.smile{
+	width:150px;
+	height:150px;
+}
+.portfolio-thumbnail{
+	background:white;
+}
+.octocat{
+	width:32px;
+	height:32px; 
+	overflow:hidden;
+	padding-right:10px;
+}
+.img-circle{
+	-webkit-border-radius: 500px;
+	-moz-border-radius: 500px;
+	border-radius: 500px;
+}
+.greeting{
+	margin-top:50px;
+	margin-bottom:50px;
+}
+.greeting .page-header{
+	margin-top:60px;
+}
