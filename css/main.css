@@ -5,63 +5,22 @@ body{
 	-o-background-size: cover;
 	background-size: cover;
 }
-.main{
-	margin-top:200px;
-	background:#6110B3;
-	padding:50px;
-	border:5px white solid;
-	box-shadow:
-	1px 1px 0 white,
-	2px 2px 0 white,
-	3px 3px 0 white,
-	4px 4px 0 white,
-	5px 5px 0 white,
-	6px 6px 0 white,
-	7px 7px 0 white,
-	8px 8px 0 white,
-	9px 9px 0 white,
-	10px 10px 0 white,
-	11px 11px 0 white,
-	12px 12px 0 white,
-	13px 13px 0 white,
-	14px 14px 0 white,
-	15px 15px 0 white,
-	16px 16px 0 white,
-	17px 17px 0 white,
-	18px 18px 0 white,
-	19px 19px 0 white,
-	20px 20px 0 white;
-	color:white;
-}
-a{
-	color:#00B300;
-}
-.smile{
-	overflow:hidden;
-	padding-right:50px;
-}
-.smile{
-	width:150px;
-	height:150px;
-}
-.portfolio-thumbnail{
+.background{
 	background:white;
+	border-radius:2px ;
 }
-.octocat{
-	width:32px;
-	height:32px; 
-	overflow:hidden;
-	padding-right:10px;
+.main-nav-contain{
+	border-bottom:5px #1062B3 solid;
 }
-.img-circle{
-	-webkit-border-radius: 500px;
-	-moz-border-radius: 500px;
-	border-radius: 500px;
+.container .content{
+	padding:20px;
 }
-.greeting{
-	margin-top:50px;
-	margin-bottom:50px;
+
+.me{
+	float:left;
+	margin:20px;
 }
-.greeting .page-header{
-	margin-top:60px;
+.me img{
+	width:200px;
+	border-radius:200px;
 }

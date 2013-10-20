@@ -1,80 +1,57 @@
 <html>
 <head>
-    <title>Clay Murray's Web Adventures</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Why Hello There</title>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <div class="container">
-   <!--  <div class="navbar ">
-      <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/"> Clay Murray's Web Adventures</a>
-          <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Sites</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="http://powerc9000.com/bullet-dodge">Bullet Dodge</a></li>
-                    <li><a href="http://powerc9000.com/asteroids">Asteroids</a></li>
-                    <li><a href="http://github.com/powerc9000/head-on.js">Head-On.js</a></li>
-                </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-    <div class="main">
-        <div class="greeting">
-            <div class="smile pull-left">
-                <img src="img/smile.jpg" alt="" class="img-circle">
-            </div>
-            
-            <div class="page-header pull-left">
-                <h1>I'm Clay Murray <small>I like to program, I also like jokes</small></h1>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        
-        <div class="octocat pull-left">
-            <img src="img/Octocat.png" alt="">
-        </div>
-        <h2>GitHub account</h2>
-        <p>A lot of the work I do can be found on <a href="http://github.com/powerc9000">My Github</a></p>
-        <h2><i class="icon-bookmark"></i> Some sites I have worked on</h2>
-        <ul class="thumbnails">
-            <li class="span4">
-                <div class="thumbnail portfolio-thumbnail">
-                    <img src="img/gvhospital.png" alt="">
-                        <div class="caption">
-                            <h3><a href="http://gvhospital.org">Gunnison Valley Hospital</a></h3>
-                            <p><span class="label label-info">Developer</span> Built on PHP, Apache and MySQL.</p>
-                        </div>
-                    
-                </div>
-            </li>
-            <li class="span4">
-                <div class="thumbnail portfolio-thumbnail">
-                    <img src="img/scoolme.png" alt="">
-                    <div class="caption">
-                        <h3><a href="http://scoolme.com">scoolme.com</a></h3>
-                        <p><span class="label label-info">Developer</span> Built with nodejs and angularjs</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <h2>Games</h2>
-        <p>I like to make javascript games and have a few in the works as well as a javascript game engine</p>
-        <ul>
-            <li><a href="http://powerc9000.com/bullet-dodge">Bullet Dodge</a></li>
-            <li><a href="http://powerc9000.com/asteroids">Asteroids</a></li>
-            <li><a href="http://github.com/powerc9000/head-on.js">Head-On.js</a> </li>
-        </ul>
-    </div>
-</div>
+	<nav class="navbar navbar-default main-nav-contain">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">powerc9000</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="http://blog.powerc9000.com">Blog</a></li>
+				<li><a href="http://github.com/powerc9000">Github</a></li>
+				<li><a data-href="/#/games">Games</a></li>
+				<li><a data-href="/#/sites">Sites</a></li>
+			</ul>
+		</div>
+		
+	</nav>
+	<div class="container background" data-load>
+		
+	</div>
+<script src="https://rawgithub.com/powerc9000/loader/master/loader.js"></script>
+<script src="router.js"></script>
+<script>
+	var rmr = rmr();
+	loader.runOnLoad(false);
+	var el = document.querySelectorAll("[data-load]")[0];
+	var links = document.querySelectorAll("[data-href]");
+	[].forEach.call(links, function(el){
+		el.addEventListener("click", handleNavigate)
+	})
+	rmr.register("/", function(){
+		console.log("herr");
+		el.setAttribute("data-load", "home.html");
+		loader.run();
+	});
+	rmr.register("/#/games", function(){
+		console.log("herro")
+		el.setAttribute("data-load", "games.html");
+		loader.run();
+	});
+	rmr.register("/#/sites", function(){
+		el.setAttribute("data-load", "sites.html");
+		loader.run();
+	});
+
+	function handleNavigate(e){
+		rmr.navigate(e.target.getAttribute("data-href"));
+		e.preventDefault();
+	}
+</script>
 </body>
 </html>
