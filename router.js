@@ -25,7 +25,11 @@
 				throw "first argument must be a string";
 			}
 			reg = routeToRegexp(uri, keys);
+
 			this.routes.push({regExp:reg, fn:fn, keys:keys});
+			if(reg.exec(window.location.pathname+window.location.hash)){
+				this.executeUri(uri);
+			}
 		};
 		routerMcRouter.prototype.isRegistered = function(uri){
 			var match, i, len = this.routes.length;
