@@ -62,6 +62,18 @@
 		rmr.navigate(e.target.getAttribute("data-href"));
 		e.preventDefault();
 	}
+	(function(){
+		var nav = document.querySelector("navbar-collapse");
+		var button = document.querySelector("navbar-toggle");
+		button.addEventListener("click", function(){
+			if(nav.classList.contains("collapse")){
+				nav.classList.remove("collapse")
+			}else{
+				nav.classList.add("collapse");
+			}
+		})
+	}())
+	
 </script>
 <script>
 	
