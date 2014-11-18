@@ -1,2 +1,4 @@
 *.py
 static_server.js
+server.js
+npm_modules/

@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Why Hello There</title>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <meta name="The personal website of Clay Murray!">
 </head>
@@ -21,18 +21,19 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a data-href="/">Home</a></li>
+					<li><a data-href="/" id="home">Home</a></li>
+          <li><a data-href="/#/games" id="games">Games</a></li>
+          <li><a data-href="/#/sites" id="sites">Projects</a></li>
 					<li><a href="http://blog.powerc9000.com">Blog</a></li>
 					<li><a href="http://github.com/powerc9000">Github</a></li>
-					<li><a data-href="/#/games">Games</a></li>
-					<li><a data-href="/#/sites">Projects</a></li>
+					
 				</ul>
 			</div>
 		</div>
 		
 	</nav>
 	<div class="container background">
-		<div data-load="home.html" class="col-md-9">
+		<div data-load="home.html" class="col-md-12">
 			
 		</div>	
 	</div>
@@ -44,24 +45,38 @@
 	//loader.runOnLoad(false);
 	var el = document.querySelectorAll("[data-load]")[0];
 	var links = document.querySelectorAll("[data-href]");
+  var currentActive = document.getElementById("home");
+  currentActive.classList.add("active");
 	[].forEach.call(links, function(el){
 		el.addEventListener("click", handleNavigate)
 	})
 	rmr.register("/", function(){
+    setActive("home")
 		el.setAttribute("data-load", "home.html");
 		loader.run();
 	});
 	rmr.register("/#/games", function(){
+    setActive("games");
 		el.setAttribute("data-load", "games.html");
 		loader.run();
 	});
 	rmr.register("/#/sites", function(){
+    setActive("sites")
 		el.setAttribute("data-load", "sites.html");
 		loader.run();
 	});
-
+  function setActive(targetId){
+    var targetEl;
+    if(currentActive){
+      currentActive.classList.remove("active");
+    }
+    targetEl = document.getElementById(targetId);
+    targetEl.classList.add("active");
+    currentActive = targetEl;
+  }
 	function handleNavigate(e){
 		rmr.navigate(e.target.getAttribute("data-href"));
+   
 		e.preventDefault();
 	}
 	(function(){

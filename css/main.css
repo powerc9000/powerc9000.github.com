@@ -1,5 +1,5 @@
 body{
-	background:#6110B3 50% 50%;
+	background:#673AB7 50% 50%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -8,9 +8,11 @@ body{
 .background{
 	background:white;
 	border-radius:2px ;
+  box-shadow:5px 5px 20px #3B3B3B;
 }
 .main-nav-contain{
-	border-bottom:5px #1062B3 solid;
+	border-bottom:5px #2196F3 solid;
+  box-shadow:2px 0 5px #3B3B3B;
 }
 .container .content{
 	padding:20px;
@@ -24,7 +26,30 @@ body{
 	width:200px;
 	border-radius:200px;
 }
+.paper-hover:hover{
 
-.nav a{
-        cursor:pointer;
+  -webkit-animation:paper_hover .2s linear 0s ;
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation:paper_hover .2s linear 0s ;
+  -moz-animation-fill-mode:forwards;
 }
+.nav a{
+  cursor:pointer;
+}
+.btn:hover{
+  -webkit-animation:paper_hover .2s linear 0s ;
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation:paper_hover .2s linear 0s ;
+  -moz-animation-fill-mode:forwards;
+}
+.navbar-nav.nav>li>a:hover {
+  background-color: #2196F3;
+  color:#E3F2FD;
+}
+.navbar-nav.nav>li>a.active {
+  background-color: #2196F3;
+  color:#E3F2FD;
+}
+@-webkit-keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
+@-moz-keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
+@keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
