@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>something </title>
+   
+    <style>
+      #image{
+        list-style-type: none;
+        margin:0;
+        padding:0;
+      }
+      li{
+        float:left;
+        margin-right:10px;
+        margin-bottom:10px;
+      }
+
+      .image{
+        max-height:300px;
+        overflow:hidden;
+        cursor:pointer;
+        position:relative;
+      }
+      .loading{
+        position:absolute;
+        background:black;
+        color:white;
+        padding:10px;
+        top:0;
+        left:20px;
+      }
+      .load-it{
+        position:absolute;
+        display:none;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        text-align:center;
+        background:rgba(0,0,0,.4);
+        color:white;
+      }
+      .image:hover .load-it{
+        display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <ul id="images">
+        
+      </ul>
+    </div>
+    <script>
+    var content = document.getElementById("content");
+    var imageHolder = document.getElementById("images");
+    var oReq = new XMLHttpRequest();
+    oReq.onload = reqListener;
+    oReq.open("get", "http://api.phhhoto.com/users/Mattty/photos", true);
+    oReq.send();
+
+    function reqListener () {
+      var data = JSON.parse(this.responseText);
+      data.forEach(function(item){
+        var el = create("<li class='image' data-clicked='false'><p class='load-it'>Click to load gif</p></li>");
+        var img = new Image();
+        el.addEventListener("click", function(){
+          var gif;
+          var that = this;
+          if(this.dataset.clicked === "false"){
+            var loading = create("<p class='loading'>Loading</p>");
+            console.log(loading)
+            this.appendChild(loading);
+            gif = new Image();
+            gif.src = item.url;
+
+            gif.onload = function(){
+              img.style.display = "none";
+              that.appendChild(gif);
+              that.classList.remove("image");
+              loading.parentNode.removeChild(loading);
+            }
+            this.dataset.clicked === "true";
+            
+          }
+
+
+        });
+        img.src = item.jpeg_thumbnail_url;
+        img.dataset.type="thumb";
+        images.appendChild(el);
+        el.appendChild(img);
+      });
+      console.log(data);
+      //console.log(this.responseText);
+    }
+    function create(element){
+        var holder = document.createElement("div"),
+          frag = document.createDocumentFragment();
+        holder.innerHTML = element;
+        while(holder.firstChild){
+          frag.appendChild(holder.firstChild);
+        }
+        return frag.firstChild;
+    }
+    </script>
+  </body>
+</html>
