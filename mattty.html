@@ -10,12 +10,15 @@
       }
       li{
         float:left;
+        position:relative;
+        width:240px;
+        height:320px;
         margin-right:10px;
         margin-bottom:10px;
       }
 
       .image{
-        max-height:300px;
+        
         overflow:hidden;
         cursor:pointer;
         position:relative;
@@ -28,7 +31,13 @@
         top:0;
         left:20px;
       }
+      .giffer{
+        width:480;
+        height:640;
+        overflow:hidden;
+      }
       .load-it{
+        display:block;
         position:absolute;
         display:none;
         width:100%;
@@ -41,6 +50,15 @@
       }
       .image:hover .load-it{
         display:block;
+      }
+      .clipped{
+        position:absolute;
+        clip:rect(0px,240px, 420px, 0px);
+      }
+      .abo{
+        position:absolute;
+        top:0;
+        left:0;
       }
     </style>
   </head>
@@ -63,6 +81,7 @@
       data.forEach(function(item){
         var el = create("<li class='image' data-clicked='false'><p class='load-it'>Click to load gif</p></li>");
         var img = new Image();
+        img.classList.add("clipped");
         el.addEventListener("click", function(){
           var gif;
           var that = this;
@@ -71,12 +90,14 @@
             console.log(loading)
             this.appendChild(loading);
             gif = new Image();
-            gif.src = item.jpeg_url;
-
+            gif.classList.add("abo");            
+            gif.src = item.url;
             gif.onload = function(){
-              img.style.display = "none";
+              //img.style.display = "none";
               that.appendChild(gif);
               that.classList.remove("image");
+              that.classList.add("giffer");
+              ramjet.transform(img, gif)
               loading.parentNode.removeChild(loading);
             }
             this.dataset.clicked === "true";
@@ -103,5 +124,6 @@
         return frag.firstChild;
     }
     </script>
+    <script src="ramjet.js"></script>
   </body>
 </html>
