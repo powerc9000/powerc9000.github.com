@@ -8,7 +8,7 @@ body{
 .background{
 	background:white;
 	border-radius:2px ;
-  box-shadow:5px 5px 20px #3B3B3B;
+  box-shadow:10px 10px 0px #BDBDBD;
 }
 .main-nav-contain{
 	border-bottom:5px #2196F3 solid;
