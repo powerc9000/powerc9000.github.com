@@ -4,14 +4,13 @@ body{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;*/
+  overflow:hidden;
 }
 
 .sidebar-nav-contain{
   padding-left:30px;
   border-right:1px #E0E0E0 solid;
-  height:100%;
-  width:300px;
-  position:fixed;
+  height:100vh;
   overflow:hidden;
 }
 @media (max-width: 768px){
@@ -31,6 +30,9 @@ body{
 
 
 .content{
+  height:100vh;
+  overflow-y:scroll;
+  overflow-x:hidden;
 	padding:20px;
 }
 
