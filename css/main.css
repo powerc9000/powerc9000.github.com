@@ -1,20 +1,36 @@
 body{
-	background:#673AB7 50% 50%;
+/*background:#673AB7 50% 50%;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover;*/
 }
-.background{
-	background:white;
-	border-radius:2px ;
-  box-shadow:10px 10px 0px #BDBDBD;
+
+.sidebar-nav-contain{
+  padding-left:30px;
+  border-right:1px #E0E0E0 solid;
+  height:100%;
+  width:300px;
+  position:fixed;
+  overflow:hidden;
 }
-.main-nav-contain{
-	border-bottom:5px #2196F3 solid;
-  box-shadow:2px 0 5px #3B3B3B;
+@media (max-width: 768px){
+  .dis-collapse{
+    display:none;
+  }
+  .dis-collapse.not-collapse {
+    display:block;
+    position:fixed;
+    z-index:19;
+    background:white;
+    width:200px;
+    height:100%;
+    top:50px;
+  }  
 }
-.container .content{
+
+
+.content{
 	padding:20px;
 }
 
@@ -26,6 +42,14 @@ body{
 	width:200px;
 	border-radius:200px;
 }
+.navbar-toggle{
+  position:absolute;
+  left:20px;
+  z-index:20;
+}
+.navbar-toggle .icon-bar{
+  background:black;
+}
 .paper-hover:hover{
 
   -webkit-animation:paper_hover .2s linear 0s ;
@@ -33,7 +57,23 @@ body{
   -moz-animation:paper_hover .2s linear 0s ;
   -moz-animation-fill-mode:forwards;
 }
-.nav a{
+.side-nav{
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
+.side-nav > li > a{
+  display:block;
+  padding:10px;
+  font-size:14px;
+}
+.side-nav > li > a:hover, .side-nav > li > a.active{
+  text-decoration:none;
+  background:#7500B0;
+  color:white;
+}
+
+.side-nav a{
   cursor:pointer;
 }
 .btn:hover{
@@ -42,14 +82,7 @@ body{
   -moz-animation:paper_hover .2s linear 0s ;
   -moz-animation-fill-mode:forwards;
 }
-.navbar-nav.nav>li>a:hover {
-  background-color: #2196F3;
-  color:#E3F2FD;
-}
-.navbar-nav.nav>li>a.active {
-  background-color: #2196F3;
-  color:#E3F2FD;
-}
+
 @-webkit-keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
 @-moz-keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
 @keyframes paper_hover { from {box-shadow: 0 0 0 #919191;} to {box-shadow: 2px 2px 4px #919191;}}
