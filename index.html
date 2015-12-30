@@ -25,7 +25,7 @@
                 <li><a data-href="/games" id="games">Games</a></li>
                 <li><a data-href="/sites" id="sites">Projects</a></li>
 		<li><a href="http://github.com/powerc9000">Github</a></li>
-		<li><a href="resume.html">Resume</a></li>
+		<li><a data-href="/resume" id="resume">Resume</a></li>
       				</ul>
       			</div>
           </div>
@@ -63,11 +63,17 @@
 		el.setAttribute("data-load", "games.html");
 		loader.run();
 	});
+
 	rmr.register("/sites", function(){
     setActive("sites")
 		el.setAttribute("data-load", "sites.html");
 		loader.run();
 	});
+  rmr.register("/resume", function(){
+    setActive("resume");
+    el.setAttribute("data-load", "resume.html");
+    loader.run();
+  });
   function setActive(targetId){
     var targetEl;
     if(currentActive){
